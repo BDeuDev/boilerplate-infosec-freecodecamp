@@ -4,6 +4,7 @@
  *******************************************/
 
 var express = require("express");
+const bcrypt = require("bcrypt");
 var app = express();
 app.disable("x-powered-by");
 var fs = require("fs");
@@ -32,7 +33,7 @@ app.get("/file/*?", function (req, res, next) {
 });
 
 var main = require("./myApp.js");
-const bcrypt = require("bcrypt");
+
 app.get("/app-info", function (req, res) {
   // list middlewares mounted on the '/' camper's app
   var appMainRouteStack = main._router.stack
